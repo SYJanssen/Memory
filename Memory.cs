@@ -17,21 +17,53 @@ namespace Memory
         private int number1 = 0;
         private int number2 = 0;
         private int cardsup = 0;
+        private int passturn = 0;
+        private int ind;
+        private int image;
         private int score_player1 = 0;
         private int score_player2 = 0;
         private PictureBox button1;
         private PictureBox button2;
-        private int passturn = 0;
+        private PictureBox button;
         private Image[] Deck = {Memory.Properties.Resources.pair_1, Memory.Properties.Resources.pair_2, Memory.Properties.Resources.pair_3,
         Memory.Properties.Resources.pair_4, Memory.Properties.Resources.pair_5, Memory.Properties.Resources.pair_6,
         Memory.Properties.Resources.pair_7, Memory.Properties.Resources.pair_8, Memory.Properties.Resources.pair_9,
-        Memory.Properties.Resources.pair_10}; 
+        Memory.Properties.Resources.pair_10};
 
         Random random = new Random();
 
         public Interface()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(Object sender, EventArgs e)
+        {
+            button = (PictureBox)sender;
+            if (button.Name.Length == 3)
+            {
+                ind   = Int32.Parse(button.Name[2].ToString()) - 1;
+                image = Int32.Parse(button.Name[2].ToString());
+                
+                Similarity(ind, button);
+            }
+            if (button.Name.Length == 4)
+            {
+                ind  = Int32.Parse(button.Name[3].ToString());
+
+                if (Int32.Parse(button.Name[2].ToString()) == 1)
+                {
+                    ind = ind + 10 - 1;
+                }
+                if (Int32.Parse(button.Name[2].ToString()) == 2)
+                {
+                    ind = ind + 20 - 1;
+                }
+
+                image = Int32.Parse(button.Name[2].ToString());
+
+                Similarity(ind, button);
+            }
         }
 
         private void Button_Restart(object sender, EventArgs e)
@@ -106,7 +138,7 @@ namespace Memory
                     passturn = 1;
                 }
                 else
-                {   if (passturn == 0)
+                { if (passturn == 0)
                     {
                         if (this.Pairs1.BackColor == Color.Red)
                         {
@@ -118,9 +150,9 @@ namespace Memory
                             this.Pairs1.BackColor = Color.Red;
                             this.Pairs2.BackColor = Color.Green;
                         }
-                    } 
+                    }
                 }
-                
+
 
                 number1 = 0;
                 number2 = 0;
@@ -143,187 +175,6 @@ namespace Memory
         {
             Shuffle();
         }
-
-        private void PB1_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB1.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB1);
-        }
-
-        private void PB2_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB2.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB2);
-        }
-
-        private void PB3_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB3.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB3);
-        }
-
-        private void PB4_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB4.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB4);
-        }
-
-        private void PB5_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB5.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB5);
-        }
-
-        private void PB6_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB6.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB6);
-        }
-
-        private void PB7_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB7.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB7);
-        }
-
-        private void PB8_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB8.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB8);
-        }
-
-        private void PB9_Click(object sender, EventArgs e)
-        {
-            string index = (this.PB9.Name[2]).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB9);
-        }
-
-        private void PB10_Click(object sender, EventArgs e)
-        {
-            string index = (10).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB10);
-        }
-
-        private void PB11_Click(object sender, EventArgs e)
-        {
-            string index = (11).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB11);
-        }
-
-        private void PB12_Click(object sender, EventArgs e)
-        {
-            string index = (12).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB12);
-        }
-
-        private void PB13_Click(object sender, EventArgs e)
-        {
-            string index = (13).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB13);
-        }
-
-        private void PB14_Click(object sender, EventArgs e)
-        {
-            string index = (14).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB14);
-        }
-
-        private void PB15_Click(object sender, EventArgs e)
-        {
-            string index = (15).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB15);
-        }
-
-        private void PB16_Click(object sender, EventArgs e)
-        {
-            string index = (16).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB16);
-        }
-
-        private void PB17_Click(object sender, EventArgs e)
-        {
-            string index = (17).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB17);
-        }
-
-        private void PB18_Click(object sender, EventArgs e)
-        {
-            string index = (18).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB18);
-        }
-
-        private void PB19_Click(object sender, EventArgs e)
-        {
-            string index = (19).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB19);
-        }
-
-        private void PB20_Click(object sender, EventArgs e)
-        {
-            string index = (20).ToString();
-            int ind = Int32.Parse(index) - 1;
-            int image = Int32.Parse(index);
-
-            Similarity(ind, this.PB20);
-        }
-
     }
 }
 

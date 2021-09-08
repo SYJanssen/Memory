@@ -93,7 +93,7 @@ namespace Memory
             this.PB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB1.TabIndex = 0;
             this.PB1.TabStop = false;
-            this.PB1.Click += new System.EventHandler(this.PB1_Click);
+            this.PB1.Click += new System.EventHandler(this.Button_Click);
             // 
             // Header
             // 
@@ -187,7 +187,7 @@ namespace Memory
             this.PB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB2.TabIndex = 39;
             this.PB2.TabStop = false;
-            this.PB2.Click += new System.EventHandler(this.PB2_Click);
+            this.PB2.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB3
             // 
@@ -201,7 +201,7 @@ namespace Memory
             this.PB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB3.TabIndex = 40;
             this.PB3.TabStop = false;
-            this.PB3.Click += new System.EventHandler(this.PB3_Click);
+            this.PB3.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB4
             // 
@@ -215,7 +215,7 @@ namespace Memory
             this.PB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB4.TabIndex = 41;
             this.PB4.TabStop = false;
-            this.PB4.Click += new System.EventHandler(this.PB4_Click);
+            this.PB4.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB5
             // 
@@ -229,7 +229,7 @@ namespace Memory
             this.PB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB5.TabIndex = 42;
             this.PB5.TabStop = false;
-            this.PB5.Click += new System.EventHandler(this.PB5_Click);
+            this.PB5.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB10
             // 
@@ -243,7 +243,7 @@ namespace Memory
             this.PB10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB10.TabIndex = 47;
             this.PB10.TabStop = false;
-            this.PB10.Click += new System.EventHandler(this.PB10_Click);
+            this.PB10.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB9
             // 
@@ -257,7 +257,7 @@ namespace Memory
             this.PB9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB9.TabIndex = 46;
             this.PB9.TabStop = false;
-            this.PB9.Click += new System.EventHandler(this.PB9_Click);
+            this.PB9.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB8
             // 
@@ -271,7 +271,7 @@ namespace Memory
             this.PB8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB8.TabIndex = 45;
             this.PB8.TabStop = false;
-            this.PB8.Click += new System.EventHandler(this.PB8_Click);
+            this.PB8.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB7
             // 
@@ -285,7 +285,7 @@ namespace Memory
             this.PB7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB7.TabIndex = 44;
             this.PB7.TabStop = false;
-            this.PB7.Click += new System.EventHandler(this.PB7_Click);
+            this.PB7.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB6
             // 
@@ -299,7 +299,7 @@ namespace Memory
             this.PB6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB6.TabIndex = 43;
             this.PB6.TabStop = false;
-            this.PB6.Click += new System.EventHandler(this.PB6_Click);
+            this.PB6.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB15
             // 
@@ -313,7 +313,7 @@ namespace Memory
             this.PB15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB15.TabIndex = 52;
             this.PB15.TabStop = false;
-            this.PB15.Click += new System.EventHandler(this.PB15_Click);
+            this.PB15.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB14
             // 
@@ -327,7 +327,7 @@ namespace Memory
             this.PB14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB14.TabIndex = 51;
             this.PB14.TabStop = false;
-            this.PB14.Click += new System.EventHandler(this.PB14_Click);
+            this.PB14.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB13
             // 
@@ -341,7 +341,7 @@ namespace Memory
             this.PB13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB13.TabIndex = 50;
             this.PB13.TabStop = false;
-            this.PB13.Click += new System.EventHandler(this.PB13_Click);
+            this.PB13.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB12
             // 
@@ -355,7 +355,7 @@ namespace Memory
             this.PB12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB12.TabIndex = 49;
             this.PB12.TabStop = false;
-            this.PB12.Click += new System.EventHandler(this.PB12_Click);
+            this.PB12.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB11
             // 
@@ -369,7 +369,7 @@ namespace Memory
             this.PB11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB11.TabIndex = 48;
             this.PB11.TabStop = false;
-            this.PB11.Click += new System.EventHandler(this.PB11_Click);
+            this.PB11.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB20
             // 
@@ -383,7 +383,7 @@ namespace Memory
             this.PB20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB20.TabIndex = 57;
             this.PB20.TabStop = false;
-            this.PB20.Click += new System.EventHandler(this.PB20_Click);
+            this.PB20.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB19
             // 
@@ -397,7 +397,7 @@ namespace Memory
             this.PB19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB19.TabIndex = 56;
             this.PB19.TabStop = false;
-            this.PB19.Click += new System.EventHandler(this.PB19_Click);
+            this.PB19.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB18
             // 
@@ -411,7 +411,7 @@ namespace Memory
             this.PB18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB18.TabIndex = 55;
             this.PB18.TabStop = false;
-            this.PB18.Click += new System.EventHandler(this.PB18_Click);
+            this.PB18.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB17
             // 
@@ -425,7 +425,7 @@ namespace Memory
             this.PB17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB17.TabIndex = 54;
             this.PB17.TabStop = false;
-            this.PB17.Click += new System.EventHandler(this.PB17_Click);
+            this.PB17.Click += new System.EventHandler(this.Button_Click);
             // 
             // PB16
             // 
@@ -439,7 +439,7 @@ namespace Memory
             this.PB16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PB16.TabIndex = 53;
             this.PB16.TabStop = false;
-            this.PB16.Click += new System.EventHandler(this.PB16_Click);
+            this.PB16.Click += new System.EventHandler(this.Button_Click);
             // 
             // Player
             // 
