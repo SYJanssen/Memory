@@ -89,6 +89,7 @@ namespace Memory
             this.PB1.BackColor = System.Drawing.Color.Transparent;
             this.PB1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PB1.BackgroundImage")));
             this.PB1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB1.Image = ((System.Drawing.Image)(resources.GetObject("PB1.Image")));
             this.PB1.Location = new System.Drawing.Point(12, 139);
             this.PB1.Name = "PB1";
@@ -215,7 +216,7 @@ namespace Memory
             this.PB5.Location = new System.Drawing.Point(336, 139);
             this.PB5.Name = "PB5";
             this.PB5.Size = new System.Drawing.Size(75, 75);
-            this.PB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PB5.TabIndex = 42;
             this.PB5.TabStop = false;
             this.PB5.Click += new System.EventHandler(this.Button_Click);
@@ -432,6 +433,8 @@ namespace Memory
             // 
             // Player
             // 
+            this.Player.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Player.AutoEllipsis = true;
             this.Player.BackColor = System.Drawing.Color.Transparent;
             this.Player.Font = new System.Drawing.Font("Algerian", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Player.Location = new System.Drawing.Point(546, 38);
@@ -463,7 +466,7 @@ namespace Memory
             // restartToolStripMenuItem
             // 
             this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.restartToolStripMenuItem.Text = "&New";
             this.restartToolStripMenuItem.Click += new System.EventHandler(this.Button_Restart);
             // 
@@ -520,6 +523,8 @@ namespace Memory
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Interface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Memory";
             this.Load += new System.EventHandler(this.Interface_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB2)).EndInit();

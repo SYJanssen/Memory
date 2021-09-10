@@ -19,7 +19,6 @@ namespace Memory
         private int cardsup = 0;
         private int passturn = 0;
         private int ind;
-        private int image;
         private int score_player1 = 0;
         private int score_player2 = 0;
         private PictureBox button1;
@@ -28,7 +27,6 @@ namespace Memory
 
         List<PictureBox> PBs = new List<PictureBox>();
         List<Image> Decks = new List<Image>();
-
         Random random = new Random();
 
 
@@ -39,14 +37,12 @@ namespace Memory
         }
 
 
-
         private void Button_Click(Object sender, EventArgs e)
         {
             button = (PictureBox)sender;
             if (button.Name.Length == 3)
             {
                 ind = Int32.Parse(button.Name[2].ToString()) - 1;
-                image = Int32.Parse(button.Name[2].ToString());
 
                 Similarity(ind, button);
             }
@@ -63,8 +59,6 @@ namespace Memory
                     ind = ind + 20 - 1;
                 }
 
-                image = Int32.Parse(button.Name[2].ToString());
-
                 Similarity(ind, button);
             }
         }
@@ -74,10 +68,10 @@ namespace Memory
             string message = "Are you sure want to start a new game?";
             string title = "New game";
 
-            MessageBoxButtons MessageBoxButtons = MessageBoxButtons.YesNo;
+            MessageBoxButtons MessageBoxButtons = MessageBoxButtons.OKCancel;
             DialogResult ResultStart = MessageBox.Show(message, title, MessageBoxButtons);
 
-            if (ResultStart == DialogResult.Yes)
+            if (ResultStart == DialogResult.OK)
             {
                 Shuffle();
                 Reset_Cards();
@@ -173,13 +167,17 @@ namespace Memory
                 string str1 = "The winner of the game is: ";
                 string str2 = " with a score of ";
                 string winner;
-                if (score_player1 > score_player2)
+                if (score_player1 >= score_player2)
                 {
-                    winner = str1 + Player1.Text + str2 + score_player1;
+                    if (score_player1 == score_player2)
+                    {
+                        winner = "It's a tie. You both have scored 5 points";
+                    }
+                    else 
+                    {
+                        winner = str1 + Player1.Text + str2 + score_player1;
+                    }
                 }
-
-                if (score_player1 == score_player2)
-                    winner = "It's a tie. You both have scored 5 points";
 
                 else
                 {
