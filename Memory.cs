@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Memory
@@ -14,6 +11,7 @@ namespace Memory
     {
         private int[] numbers = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10 };
         private int count = 0;
+        private int contin = 0;
         private int number1 = 0;
         private int number2 = 0;
         private int cardsup = 0;
@@ -25,6 +23,12 @@ namespace Memory
         private PictureBox button1;
         private PictureBox button2;
         private PictureBox button;
+        private Form MessageboxNames = new Memory.MessageboxNames();
+
+        List<PictureBox> PBs = new List<PictureBox>();
+        List<Image> Decks = new List<Image>();
+
+
         private Image[] Deck = {Memory.Properties.Resources.pair_1, Memory.Properties.Resources.pair_2, Memory.Properties.Resources.pair_3,
         Memory.Properties.Resources.pair_4, Memory.Properties.Resources.pair_5, Memory.Properties.Resources.pair_6,
         Memory.Properties.Resources.pair_7, Memory.Properties.Resources.pair_8, Memory.Properties.Resources.pair_9,
@@ -32,24 +36,28 @@ namespace Memory
 
         Random random = new Random();
 
+
+
         public Interface()
         {
             InitializeComponent();
         }
+
+
 
         private void Button_Click(Object sender, EventArgs e)
         {
             button = (PictureBox)sender;
             if (button.Name.Length == 3)
             {
-                ind   = Int32.Parse(button.Name[2].ToString()) - 1;
+                ind = Int32.Parse(button.Name[2].ToString()) - 1;
                 image = Int32.Parse(button.Name[2].ToString());
-                
+
                 Similarity(ind, button);
             }
             if (button.Name.Length == 4)
             {
-                ind  = Int32.Parse(button.Name[3].ToString());
+                ind = Int32.Parse(button.Name[3].ToString());
 
                 if (Int32.Parse(button.Name[2].ToString()) == 1)
                 {
@@ -68,13 +76,29 @@ namespace Memory
 
         private void Button_Restart(object sender, EventArgs e)
         {
-            Shuffle();
-            Reset_Cards();
-            MessageBox.Show("The cards are shuffled, scores are set. Let's go!");
+            string message = "Are you sure want to start a new game?";
+            string title = "New game";
+            MessageBoxButtons MessageBoxButtons = MessageBoxButtons.YesNo;
+            DialogResult ResultStart = MessageBox.Show(message, title, MessageBoxButtons);
+            if (ResultStart == DialogResult.Yes)
+            {
+                Player_Names();
+                Shuffle();
+                MessageboxNames.Show();
+                Reset_Cards();
+            }
+        }
+
+
+        private void Player_Names()
+        {
+            MessageboxNames.Show();
+
         }
 
         private void Shuffle()
         {
+
             TotalTurns.Text = "0";
             Pairs1.Text = "0";
             Pairs2.Text = "0";
@@ -95,7 +119,6 @@ namespace Memory
             passturn = 0;
             if (cardsup > 1)
             {
-                PictureBox[] PBs = { PB1, PB2, PB3, PB4, PB5, PB6, PB7, PB8, PB9, PB10, PB11, PB12, PB12, PB13, PB14, PB15, PB16, PB17, PB18, PB19, PB20 };
                 foreach (PictureBox P in PBs)
                 {
                     P.Image = Memory.Properties.Resources.cards;
@@ -138,7 +161,8 @@ namespace Memory
                     passturn = 1;
                 }
                 else
-                { if (passturn == 0)
+                {
+                    if (passturn == 0)
                     {
                         if (this.Pairs1.BackColor == Color.Red)
                         {
@@ -157,13 +181,31 @@ namespace Memory
                 number1 = 0;
                 number2 = 0;
             }
+
+            if (score_player1 + score_player2 == 10)
+            {
+                string winner;
+                if (score_player1 > score_player2)
+                {
+                    winner = "The winner of the game is " + Player1.Text + " with a score of " + score_player1;
+                }
+
+                if (score_player1 == score_player2)
+                    winner = "It's a tie. You both have scored 5 points";
+
+                else
+                {
+                    winner = "The winner of the game is " + Player2.Text + " with a score of " + score_player2;
+                }
+
+                MessageBox.Show(winner);
+            }
             this.TotalTurns.Text = count.ToString();
             count++;
         }
 
         private void Reset_Cards()
         {
-            PictureBox[] PBs = { PB1, PB2, PB3, PB4, PB5, PB6, PB7, PB8, PB9, PB10, PB11, PB12, PB12, PB13, PB14, PB15, PB16, PB17, PB18, PB19, PB20 };
             foreach (PictureBox P in PBs)
             {
                 P.Visible = true;
@@ -173,7 +215,22 @@ namespace Memory
 
         private void Interface_Load(object sender, EventArgs e)
         {
-            Shuffle();
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is PictureBox)
+                {
+                    PBs.Add((PictureBox)ctrl);
+                    ctrl.Visible = false;
+                }
+            }
+        }
+    }
+
+    public partial class MessageboxNames : Form
+    {
+        public MessageboxNames()
+        {
+            Initialize_Components();
         }
     }
 }

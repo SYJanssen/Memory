@@ -37,7 +37,6 @@ namespace Memory
             this.Pairs1 = new System.Windows.Forms.Label();
             this.Pairs2 = new System.Windows.Forms.Label();
             this.TotalTurns = new System.Windows.Forms.Label();
-            this.Restart = new System.Windows.Forms.Button();
             this.PB2 = new System.Windows.Forms.PictureBox();
             this.PB3 = new System.Windows.Forms.PictureBox();
             this.PB4 = new System.Windows.Forms.PictureBox();
@@ -59,6 +58,9 @@ namespace Memory
             this.PB16 = new System.Windows.Forms.PictureBox();
             this.Player = new System.Windows.Forms.Label();
             this.Total = new System.Windows.Forms.Label();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB3)).BeginInit();
@@ -79,6 +81,7 @@ namespace Memory
             ((System.ComponentModel.ISupportInitialize)(this.PB18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB16)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PB1
@@ -99,9 +102,9 @@ namespace Memory
             // 
             this.Header.BackColor = System.Drawing.Color.Transparent;
             this.Header.Font = new System.Drawing.Font("Algerian", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Header.Location = new System.Drawing.Point(12, 27);
+            this.Header.Location = new System.Drawing.Point(12, 38);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(399, 90);
+            this.Header.Size = new System.Drawing.Size(399, 79);
             this.Header.TabIndex = 10;
             this.Header.Text = "Memory";
             this.Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -160,20 +163,6 @@ namespace Memory
             this.TotalTurns.TabIndex = 37;
             this.TotalTurns.Text = "0";
             this.TotalTurns.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Restart
-            // 
-            this.Restart.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.Restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Restart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Restart.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Restart.Location = new System.Drawing.Point(583, 423);
-            this.Restart.Name = "Restart";
-            this.Restart.Size = new System.Drawing.Size(150, 75);
-            this.Restart.TabIndex = 38;
-            this.Restart.Text = "Restart";
-            this.Restart.UseVisualStyleBackColor = false;
-            this.Restart.Click += new System.EventHandler(this.Button_Restart);
             // 
             // PB2
             // 
@@ -463,6 +452,32 @@ namespace Memory
             this.Total.Text = "Total";
             this.Total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.restartToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // restartToolStripMenuItem
+            // 
+            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
+            this.restartToolStripMenuItem.Text = "&New";
+            this.restartToolStripMenuItem.Click += new System.EventHandler(this.Button_Restart);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(754, 28);
+            this.menuStrip1.TabIndex = 59;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -471,7 +486,7 @@ namespace Memory
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(751, 510);
+            this.ClientSize = new System.Drawing.Size(754, 484);
             this.Controls.Add(this.Total);
             this.Controls.Add(this.PB20);
             this.Controls.Add(this.PB19);
@@ -492,7 +507,6 @@ namespace Memory
             this.Controls.Add(this.PB4);
             this.Controls.Add(this.PB3);
             this.Controls.Add(this.PB2);
-            this.Controls.Add(this.Restart);
             this.Controls.Add(this.TotalTurns);
             this.Controls.Add(this.Pairs2);
             this.Controls.Add(this.Pairs1);
@@ -501,10 +515,11 @@ namespace Memory
             this.Controls.Add(this.Player);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.PB1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Interface";
-            this.Text = "Memory";
             this.Load += new System.EventHandler(this.Interface_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PB1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB2)).EndInit();
@@ -526,7 +541,10 @@ namespace Memory
             ((System.ComponentModel.ISupportInitialize)(this.PB18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB16)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -539,7 +557,6 @@ namespace Memory
         private System.Windows.Forms.Label Pairs1;
         private System.Windows.Forms.Label Pairs2;
         private System.Windows.Forms.Label TotalTurns;
-        private System.Windows.Forms.Button Restart;
         private System.Windows.Forms.PictureBox PB2;
         private System.Windows.Forms.PictureBox PB3;
         private System.Windows.Forms.PictureBox PB4;
@@ -561,6 +578,46 @@ namespace Memory
         private System.Windows.Forms.PictureBox PB16;
         private System.Windows.Forms.Label Player;
         private System.Windows.Forms.Label Total;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+    }
+
+    partial class MessageboxNames
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+
+        private void Initialize_Components()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageboxNames));
+            this.Player1Name = new System.Windows.Forms.Label();
+            this.Player2Name = new System.Windows.Forms.Label();
+        }
+
+        #endregion
+        private System.Windows.Forms.Label Player1Name;
+        private System.Windows.Forms.Label Player2Name;
+
     }
 }
 
