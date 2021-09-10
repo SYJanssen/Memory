@@ -582,42 +582,4 @@ namespace Memory
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
     }
-
-    partial class MessageboxNames
-    {
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-
-        private void Initialize_Components()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageboxNames));
-            this.Player1Name = new System.Windows.Forms.Label();
-            this.Player2Name = new System.Windows.Forms.Label();
-        }
-
-        #endregion
-        private System.Windows.Forms.Label Player1Name;
-        private System.Windows.Forms.Label Player2Name;
-
-    }
 }
-

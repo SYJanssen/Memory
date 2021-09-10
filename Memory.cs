@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace Memory
@@ -11,7 +14,6 @@ namespace Memory
     {
         private int[] numbers = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10 };
         private int count = 0;
-        private int contin = 0;
         private int number1 = 0;
         private int number2 = 0;
         private int cardsup = 0;
@@ -23,16 +25,9 @@ namespace Memory
         private PictureBox button1;
         private PictureBox button2;
         private PictureBox button;
-        private Form MessageboxNames = new Memory.MessageboxNames();
 
         List<PictureBox> PBs = new List<PictureBox>();
         List<Image> Decks = new List<Image>();
-
-
-        private Image[] Deck = {Memory.Properties.Resources.pair_1, Memory.Properties.Resources.pair_2, Memory.Properties.Resources.pair_3,
-        Memory.Properties.Resources.pair_4, Memory.Properties.Resources.pair_5, Memory.Properties.Resources.pair_6,
-        Memory.Properties.Resources.pair_7, Memory.Properties.Resources.pair_8, Memory.Properties.Resources.pair_9,
-        Memory.Properties.Resources.pair_10};
 
         Random random = new Random();
 
@@ -78,22 +73,15 @@ namespace Memory
         {
             string message = "Are you sure want to start a new game?";
             string title = "New game";
+
             MessageBoxButtons MessageBoxButtons = MessageBoxButtons.YesNo;
             DialogResult ResultStart = MessageBox.Show(message, title, MessageBoxButtons);
+
             if (ResultStart == DialogResult.Yes)
             {
-                Player_Names();
                 Shuffle();
-                MessageboxNames.Show();
                 Reset_Cards();
             }
-        }
-
-
-        private void Player_Names()
-        {
-            MessageboxNames.Show();
-
         }
 
         private void Shuffle()
@@ -129,14 +117,14 @@ namespace Memory
             if (number1 == 0)
             {
                 number1 = numbers[ind];
-                button.Image = Deck[number1 - 1];
+                button.Image = Decks[number1 - 1];
                 cardsup++;
                 button1 = button;
             }
             else
             {
                 number2 = numbers[ind];
-                button.Image = Deck[number2 - 1];
+                button.Image = Decks[number2 - 1];
                 cardsup++;
                 button2 = button;
             }
@@ -176,18 +164,18 @@ namespace Memory
                         }
                     }
                 }
-
-
                 number1 = 0;
                 number2 = 0;
             }
 
             if (score_player1 + score_player2 == 10)
             {
+                string str1 = "The winner of the game is: ";
+                string str2 = " with a score of ";
                 string winner;
                 if (score_player1 > score_player2)
                 {
-                    winner = "The winner of the game is " + Player1.Text + " with a score of " + score_player1;
+                    winner = str1 + Player1.Text + str2 + score_player1;
                 }
 
                 if (score_player1 == score_player2)
@@ -195,7 +183,7 @@ namespace Memory
 
                 else
                 {
-                    winner = "The winner of the game is " + Player2.Text + " with a score of " + score_player2;
+                    winner = str1 + Player2.Text + str2 + score_player2;
                 }
 
                 MessageBox.Show(winner);
@@ -215,6 +203,17 @@ namespace Memory
 
         private void Interface_Load(object sender, EventArgs e)
         {
+            ResourceSet resourceSet = Memory.Properties.Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+            foreach (DictionaryEntry entry in resourceSet)
+            {
+                Image resim = (Image)entry.Value;
+                string resourceKey = (string)entry.Key;
+                if (resourceKey != "cards")
+                {
+                    Decks.Add(resim);
+                }
+            }
+
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is PictureBox)
@@ -223,14 +222,6 @@ namespace Memory
                     ctrl.Visible = false;
                 }
             }
-        }
-    }
-
-    public partial class MessageboxNames : Form
-    {
-        public MessageboxNames()
-        {
-            Initialize_Components();
         }
     }
 }
